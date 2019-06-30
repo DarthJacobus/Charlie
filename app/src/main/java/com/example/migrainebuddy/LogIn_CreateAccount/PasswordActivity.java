@@ -35,7 +35,7 @@ public class PasswordActivity extends AppCompatActivity
 
     public static Boolean createdAccount;
 
-    //fuck a duck
+    //fuck a duck and some shit
 
 
     @Override
