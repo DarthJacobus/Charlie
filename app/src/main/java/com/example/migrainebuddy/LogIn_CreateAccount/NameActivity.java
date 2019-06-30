@@ -7,12 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.migrainebuddy.R;
 import com.example.migrainebuddy.User.User;
 import com.example.migrainebuddy.UserDataEncryption;
@@ -20,31 +21,44 @@ import com.example.migrainebuddy.UserDataEncryption;
 public class NameActivity extends AppCompatActivity
 {
 
+    //Widgets
     TextView nameQuestionText, signInInsteadText;
     EditText firstNameField, lastNameField;
     Button nextButton;
 
+    //firstName and lastName variables
     public static String firstName, lastName;
+
+    //New User instance newUser
     public static User newUser;
 
+    //Encryption manager
     UserDataEncryption encryptor;
 
 
+    //Method: ON CREATE
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //Creation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name);
+
         //final Animation animShake = AnimationUtils.loadAnimation(this, R.anim.shake);
         initWidgets();
         encryptor = new UserDataEncryption();
 
+        final Animation animShake = AnimationUtils.loadAnimation(this, R.anim.shake);
 
 
+        //NextButton OnClickListener
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+                fieldToStringVar();
 
+                //Actions executed after animation delay
                 Runnable r = new Runnable() {
                     @Override
                     public void run(){
@@ -54,8 +68,7 @@ public class NameActivity extends AppCompatActivity
                     }
                 };
 
-                fieldToStringVar();
-
+                //Conditional: Executed if firstName and lastName input is successful
                 if(!fieldsAreEmpty()) {
                     closeKeyboard();
                     String decFirstName = encryptor.encrypt(firstName, "hgtkk5ok3o34o");
@@ -64,17 +77,17 @@ public class NameActivity extends AppCompatActivity
 
                     Handler h = new Handler();
                     h.postDelayed(r, 300);
-
-
                 }
 
+                //Conditional: Executed if firstName and lastName input fails
                 else {
                     Toast.makeText(NameActivity.this, "Make sure your name is complete!", Toast.LENGTH_SHORT).show();
-                    //nextButton.startAnimation(animShake);
+                    nextButton.startAnimation(animShake);
                 }
             }
         });
 
+        //Sign-in-instead text OnClickListener
         signInInsteadText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +113,7 @@ public class NameActivity extends AppCompatActivity
     }
     */
 
+    //Method: Initializes all widgets in the view
     public void initWidgets()
     {
         nameQuestionText = findViewById(R.id.nameQuestion);
@@ -109,12 +123,16 @@ public class NameActivity extends AppCompatActivity
         nextButton = findViewById(R.id.nextButton);
     }
 
+
+    //Method: Sets firstName and lastName equal to the input in firstNameField and lastNameField
     public void fieldToStringVar()
     {
         firstName = firstNameField.getText().toString();
         lastName = lastNameField.getText().toString();
     }
 
+
+    //Method: Checks if firstNameField and/or lastNameField is empty
     public Boolean fieldsAreEmpty()
     {
         if(TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName)) {
@@ -123,6 +141,8 @@ public class NameActivity extends AppCompatActivity
         return false;
     }
 
+
+    //Method: Force hides keyboard
     private void closeKeyboard()
     {
         View view = this.getCurrentFocus();

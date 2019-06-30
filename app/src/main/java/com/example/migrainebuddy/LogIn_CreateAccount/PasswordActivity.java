@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.migrainebuddy.AgeActivity;
 import com.example.migrainebuddy.Databases.MBDatabaseHelper;
 import com.example.migrainebuddy.Profile_and_Settings.ProfileFragment;
@@ -24,10 +23,12 @@ import com.example.migrainebuddy.UserDataEncryption;
 public class PasswordActivity extends AppCompatActivity
 {
 
+    //Widgets
     private TextView passwordText, signInInsteadText;
     private EditText passwordField1, passwordField2;
     private Button nextButton;
 
+    //password and repeatedPassword variables
     public static String password, repeatedPassword;
 
     UserDataEncryption encryptor;
@@ -36,23 +37,29 @@ public class PasswordActivity extends AppCompatActivity
     public static Boolean createdAccount;
 
 
-
+    //Method: ON CREATE
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //Creation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
+
         mbDatabase =  new MBDatabaseHelper(this);
         final Animation animShake = AnimationUtils.loadAnimation(this, R.anim.shake);
         initWidgets();
         createdAccount = null;
 
 
+        //NextButton OnClickListener
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                //Sets password and repeatedPassword to field input
+                fieldToStringVar();
 
+                //Actions executed after animation delay
                 Runnable r = new Runnable() {
                     @Override
                     public void run(){
@@ -62,25 +69,18 @@ public class PasswordActivity extends AppCompatActivity
                     }
                 };
 
-                fieldToStringVar();
 
+                //Conditional IF: Executed if log in is successful
                 if(!fieldsAreEmpty() && passwordsMatch(password, repeatedPassword) && !passwordSameAsEmail(password, encryptor.decrypt(NameActivity.newUser.getEmail(), "onhi2g4pojg")) && passwordAtLeastSixtCharacters(password)) {
                     closeKeyboard();
                     String encryptedPassword = encryptor.encrypt(password, "j5gij55k4k4om4wo");
                     NameActivity.newUser.setPassword(encryptedPassword);
-                    //Toast.makeText(PasswordActivity.this, NameActivity.newUser.getFirstName() + " " + NameActivity.newUser.getLastName() + " " + NameActivity.newUser.getEmail() + " " + NameActivity.newUser.getPassword(), Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(PasswordActivity.this, BottomNavigationActivity.class);
-                    //Intent intent = new Intent(PasswordActivity.this, AgeActivity.class);
-                    createdAccount = true;
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userEmail", NameActivity.newUser.getEmail());
-                    ProfileFragment profileFragment = new ProfileFragment();
-                    profileFragment.setArguments(bundle);
+
                     Handler h = new Handler();
                     h.postDelayed(r, 300);
-
                 }
 
+                //Conditional ELSE: Different executions if log in fails depending on nature of failure
                 else {
                     if(fieldsAreEmpty()) {
                         Toast.makeText(PasswordActivity.this, "Make sure to repeat your password!", Toast.LENGTH_SHORT).show();
@@ -92,9 +92,11 @@ public class PasswordActivity extends AppCompatActivity
                     }
                     else if(passwordSameAsEmail(password, encryptor.decrypt(NameActivity.newUser.getEmail(), "onhi2g4pojg"))) {
                         Toast.makeText(PasswordActivity.this, "Your email and password can't be the same!", Toast.LENGTH_SHORT).show();
+                        nextButton.startAnimation(animShake);
                     }
                     else if(!passwordAtLeastSixtCharacters(password)) {
                         Toast.makeText(PasswordActivity.this, "Your password needs to be at least six characters!", Toast.LENGTH_SHORT).show();
+                        nextButton.startAnimation(animShake);
                     }
 
                 }
@@ -103,6 +105,7 @@ public class PasswordActivity extends AppCompatActivity
         });
 
 
+        //Sign-in-instead text OnClickListener
         signInInsteadText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +119,11 @@ public class PasswordActivity extends AppCompatActivity
 
 
 
+
+
+
+
+    //Method: Enables animation at start of activity
     @Override
     public void finish()
     {
@@ -123,6 +131,8 @@ public class PasswordActivity extends AppCompatActivity
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+
+    //Method: Initializes all widgets in the view
     private void initWidgets()
     {
         passwordText = findViewById(R.id.passwordText);
@@ -133,12 +143,15 @@ public class PasswordActivity extends AppCompatActivity
 
     }
 
+    //Method: Sets password and repeatedPassword equal to the input in passwordField1 and passwordField2
     private void fieldToStringVar()
     {
         password = passwordField1.getText().toString();
         repeatedPassword = passwordField2.getText().toString();
     }
 
+
+    //Method: Checks if password and repeatedPassword match
     public Boolean passwordsMatch(String p1, String p2)
     {
         if(p1.equals(p2)) {
@@ -147,6 +160,8 @@ public class PasswordActivity extends AppCompatActivity
         return false;
     }
 
+
+    //Method: Checks if passwordField1 and/or passwordField2 is empty
     private Boolean fieldsAreEmpty()
     {
         if(TextUtils.isEmpty(password) || TextUtils.isEmpty(repeatedPassword)) {
@@ -157,13 +172,15 @@ public class PasswordActivity extends AppCompatActivity
     }
 
 
-
+    //Method: Checks if password and email are the same
     private Boolean passwordSameAsEmail(String p, String e)
     {
         if(p.equals(e)) { return true; }
         return false;
     }
 
+
+    //Method: Checks if password is at least six characters in length
     private Boolean passwordAtLeastSixtCharacters(String p)
     {
         if(p.length() >= 6) {
@@ -173,6 +190,8 @@ public class PasswordActivity extends AppCompatActivity
 
     }
 
+
+    //Method: Force hides the keyboard
     private void closeKeyboard()
     {
         View view = this.getCurrentFocus();

@@ -27,10 +27,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="What is your gender?"
+                    android:fontFamily="@font/sniglet"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:id="@+id/radioGroupGenderQuestion"
@@ -44,6 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Female"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="goToSpecificGenderFlipper"
                         android:textSize="20sp"/>
@@ -52,6 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Male"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="goToSpecificGenderFlipper"
                         android:textSize="20sp"/>
 
@@ -95,7 +98,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -108,6 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
@@ -116,6 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
@@ -147,7 +153,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -160,6 +167,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
@@ -168,6 +176,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
@@ -199,7 +208,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -212,6 +222,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
@@ -220,6 +231,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
@@ -252,7 +264,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -265,15 +278,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
-                        android:onClick="goToProfile"
+                        android:onClick="finishAccountCreation"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
-                        android:onClick="goToProfile"
+                        android:fontFamily="@font/sniglet"
+                        android:onClick="finishAccountCreation"
                         android:textSize="20sp"/>
 
 
@@ -316,7 +331,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -329,6 +345,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="nextViewMale"
                         android:textSize="20sp"/>
@@ -337,6 +354,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="nextViewMale"
                         android:textSize="20sp"/>
 
@@ -368,7 +386,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -381,6 +400,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
                         android:onClick="nextViewMale"
                         android:textSize="20sp"/>
@@ -389,6 +409,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
+                        android:fontFamily="@font/sniglet"
                         android:onClick="nextViewMale"
                         android:textSize="20sp"/>
 
@@ -420,7 +441,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sniglet"/>
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -433,15 +455,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Yes"
+                        android:fontFamily="@font/sniglet"
                         android:layout_marginRight="16dp"
-                        android:onClick="goToProfile"
+                        android:onClick="finishAccountCreation"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
-                        android:onClick="goToProfile"
+                        android:fontFamily="@font/sniglet"
+                        android:onClick="finishAccountCreation"
                         android:textSize="20sp"/>
 
 

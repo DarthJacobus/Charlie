@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/acme</item>
+        <item>@font/amaranth</item>
         <item>@font/courgette</item>
         <item>@font/croissant_one</item>
         <item>@font/fondamento</item>
@@ -11,15 +13,23 @@
         <item>@font/kite_one</item>
         <item>@font/life_savers_bold</item>
         <item>@font/lily_script_one</item>
+        <item>@font/martel_sans_extralight</item>
         <item>@font/merienda_one</item>
         <item>@font/pacifico</item>
         <item>@font/paprika</item>
         <item>@font/pattaya</item>
         <item>@font/permanent_marker</item>
         <item>@font/racing_sans_one</item>
+        <item>@font/raleway_thin</item>
+        <item>@font/ramabhadra</item>
         <item>@font/rancho</item>
         <item>@font/righteous</item>
+        <item>@font/roboto_black</item>
+        <item>@font/roboto_mono_thin</item>
+        <item>@font/roboto_thin</item>
         <item>@font/satisfy</item>
+        <item>@font/sigmar_one</item>
+        <item>@font/sniglet</item>
         <item>@font/sofadi_one</item>
         <item>@font/sue_ellen_francisco</item>
     </array>

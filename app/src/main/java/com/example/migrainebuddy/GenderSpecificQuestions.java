@@ -11,6 +11,8 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.migrainebuddy.BottomNavigation.BottomNavigationActivity;
+import com.example.migrainebuddy.LogIn_CreateAccount.NameActivity;
+import com.example.migrainebuddy.Profile_and_Settings.ProfileFragment;
 
 public class GenderSpecificQuestions extends AppCompatActivity
 {
@@ -95,9 +97,17 @@ public class GenderSpecificQuestions extends AppCompatActivity
 
     }
 
-    public void goToProfile(View v)
+    public void finishAccountCreation(View v)
     {
         Intent intent = new Intent(this, BottomNavigationActivity.class);
+
+        //createdAccount = true;
+
+        Bundle bundle = new Bundle();
+        bundle.putString("userEmail", NameActivity.newUser.getEmail());
+        ProfileFragment profileFragment = new ProfileFragment();
+        profileFragment.setArguments(bundle);
+
         startActivity(intent);
 
     }

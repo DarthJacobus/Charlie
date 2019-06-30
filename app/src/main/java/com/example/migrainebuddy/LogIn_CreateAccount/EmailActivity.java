@@ -15,27 +15,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.regex.Pattern;
-
 import com.example.migrainebuddy.R;
 import com.example.migrainebuddy.UserDataEncryption;
 
 public class EmailActivity extends AppCompatActivity
 {
 
+    //Widgets
     private Button nextButton;
     private TextView emailText, signInInsteadText;
     private EditText emailField1, emailField2;
 
+    //email and repeatedEmail variables
     public static String email, repeatedEmail;
 
     UserDataEncryption encryptor;
 
 
-
-
+    //Method: ON CREATE
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //Creation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
 
@@ -43,14 +44,14 @@ public class EmailActivity extends AppCompatActivity
 
         initWidgets();
 
-
-
-
-
+        //NextButton OnClickListener
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+                fieldToStringVar();
 
+                //Actions executed after animation delay
                 Runnable r = new Runnable() {
                     @Override
                     public void run(){
@@ -60,9 +61,7 @@ public class EmailActivity extends AppCompatActivity
                     }
                 };
 
-                fieldToStringVar();
-
-
+                //Conditional IF: Executed if email and repeatedEmail do not match and fields are not empty
                 if(!fieldsAreEmpty() && emailsMatch(email, repeatedEmail) && emailPatternIsValid(email)) {
                     closeKeyboard();
                     String encryptedEmail = encryptor.encrypt(email, "onhi2g4pojg");
@@ -71,6 +70,7 @@ public class EmailActivity extends AppCompatActivity
                     h.postDelayed(r, 300);
                 }
 
+                //Conditional ELSE: Executed when email input fails depending on nature of failure
                 else {
                     if(fieldsAreEmpty()) {
                         Toast.makeText(EmailActivity.this, "Make sure to repeat your email! Try again!", Toast.LENGTH_SHORT).show();
@@ -92,6 +92,7 @@ public class EmailActivity extends AppCompatActivity
         });
 
 
+        //Sign-in-instead text OnClickListener
         signInInsteadText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +107,7 @@ public class EmailActivity extends AppCompatActivity
     }
 
 
+    //Method: Enables animation at start of activity
     @Override
     public void finish()
     {
@@ -114,6 +116,7 @@ public class EmailActivity extends AppCompatActivity
     }
 
 
+    //Method: Initializes all widgets in the view
     public void initWidgets()
     {
         nextButton = findViewById(R.id.nextButton2);
@@ -124,12 +127,16 @@ public class EmailActivity extends AppCompatActivity
 
     }
 
+
+    //Method: Sets email and repeatedEmail equal to the input in emailField1 and emailField2
     public void fieldToStringVar()
     {
         email = emailField1.getText().toString().toLowerCase();
         repeatedEmail = emailField2.getText().toString().toLowerCase();
     }
 
+
+    //Method: Checks if emailField1 and/or emailField2 is empty
     public Boolean fieldsAreEmpty()
     {
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(repeatedEmail)) {
@@ -139,12 +146,16 @@ public class EmailActivity extends AppCompatActivity
 
     }
 
+
+    //Method: Checks if email and repeatedEmail match
     public Boolean emailsMatch(String email1, String email2)
     {
         if(email1.equals(email2)) {return true;}
         return false;
     }
 
+
+    //Method: Checks if email follows the standard email address pattern
     public Boolean emailPatternIsValid(String emailStr) {
         final Pattern EMAIL_REGEX = Pattern
                 .compile("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+" +
@@ -153,6 +164,8 @@ public class EmailActivity extends AppCompatActivity
         return EMAIL_REGEX.matcher(emailStr).matches();
     }
 
+
+    //Method: Force hides keyboard
     private void closeKeyboard()
     {
         View view = this.getCurrentFocus();
