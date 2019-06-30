@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MigraineBuddy</string>
+
+    <string name="delete_account_text">
+        When deleting your account, all  your personal information and migraine data is
+        deleted from your phone and our database. Restoring any data will be impossible
+        after deleting your account, and we therefore urge you to export your data first.
+    </string>
+
+    <string name="gender_explanation_text">
+        Knowing your gender makes it easier for Charlie to optimize your user experience as
+        women and men can have gender-specific migraines!
+    </string>
+
+</resources>

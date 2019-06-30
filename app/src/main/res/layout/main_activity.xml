@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogIn_CreateAccount.MainActivity"
+    android:background="@drawable/welcome_wallpaper_8">
+
+
+    <TextView
+        android:id="@+id/migraineBuddyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/pacifico"
+        android:text="Charlie"
+        android:textColor="#001a33"
+        android:textSize="60sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/indie_flower"
+        android:text="Your friendly Migraine helper"
+        android:textStyle="bold"
+        android:textColor="#001a33"
+        android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/signInButtonMainActivity"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:text="Sign in"
+        android:backgroundTint="#001a33"
+        android:textColor="#999999" />
+
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="455dp"
+        android:text="Create Account"
+        android:backgroundTint="#001a33"
+        android:textColor="#999999" />
+
+</RelativeLayout>
