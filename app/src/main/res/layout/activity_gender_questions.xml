@@ -7,11 +7,8 @@
     tools:context=".GenderSpecificQuestions"
     android:background="#001a33">
 
-
-
-
     <ViewFlipper
-        android:id="@+id/questionFlipper"
+        android:id="@+id/questionFlipperGender"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -36,6 +33,7 @@
                     android:textStyle="bold"/>
 
                 <RadioGroup
+                    android:id="@+id/radioGroupGenderQuestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -47,14 +45,14 @@
                         android:layout_height="match_parent"
                         android:text="Female"
                         android:layout_marginRight="16dp"
-                        android:onClick="nextView"
+                        android:onClick="goToSpecificGenderFlipper"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Male"
-                        android:onClick="nextView"
+                        android:onClick="goToSpecificGenderFlipper"
                         android:textSize="20sp"/>
 
 
@@ -66,6 +64,18 @@
 
 
         </android.support.v7.widget.CardView>
+
+
+    </ViewFlipper>
+
+
+
+
+    <ViewFlipper
+        android:id="@+id/questionFlipperFemale"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
 
         <android.support.v7.widget.CardView
             android:layout_width="350dp"
@@ -99,14 +109,14 @@
                         android:layout_height="match_parent"
                         android:text="Yes"
                         android:layout_marginRight="16dp"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
 
@@ -151,14 +161,14 @@
                         android:layout_height="match_parent"
                         android:text="Yes"
                         android:layout_marginRight="16dp"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
 
@@ -203,14 +213,14 @@
                         android:layout_height="match_parent"
                         android:text="Yes"
                         android:layout_marginRight="16dp"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
                     <RadioButton
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="No"
-                        android:onClick="nextView"
+                        android:onClick="nextViewFemale"
                         android:textSize="20sp"/>
 
 
@@ -280,6 +290,178 @@
 
 
     </ViewFlipper>
+
+
+
+    <ViewFlipper
+        android:id="@+id/questionFlipperMale"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:backgroundTint="#234790"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Are you transgender?"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="100dp">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Yes"
+                        android:layout_marginRight="16dp"
+                        android:onClick="nextViewMale"
+                        android:textSize="20sp"/>
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="No"
+                        android:onClick="nextViewMale"
+                        android:textSize="20sp"/>
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:backgroundTint="#234790"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Do you take hormonal supplements?"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="100dp">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Yes"
+                        android:layout_marginRight="16dp"
+                        android:onClick="nextViewMale"
+                        android:textSize="20sp"/>
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="No"
+                        android:onClick="nextViewMale"
+                        android:textSize="20sp"/>
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:backgroundTint="#234790"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Are you going through testorone therapy?"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="100dp">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Yes"
+                        android:layout_marginRight="16dp"
+                        android:onClick="goToProfile"
+                        android:textSize="20sp"/>
+
+                    <RadioButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="No"
+                        android:onClick="goToProfile"
+                        android:textSize="20sp"/>
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </ViewFlipper>
+
+
+
+
+
+
 
 
 </RelativeLayout>

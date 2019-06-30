@@ -35,7 +35,6 @@ public class PasswordActivity extends AppCompatActivity
 
     public static Boolean createdAccount;
 
-    //fuck a duck and some shit
 
 
     @Override
@@ -69,7 +68,7 @@ public class PasswordActivity extends AppCompatActivity
                     closeKeyboard();
                     String encryptedPassword = encryptor.encrypt(password, "j5gij55k4k4om4wo");
                     NameActivity.newUser.setPassword(encryptedPassword);
-                    Toast.makeText(PasswordActivity.this, NameActivity.newUser.getFirstName() + " " + NameActivity.newUser.getLastName() + " " + NameActivity.newUser.getEmail() + " " + NameActivity.newUser.getPassword(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(PasswordActivity.this, NameActivity.newUser.getFirstName() + " " + NameActivity.newUser.getLastName() + " " + NameActivity.newUser.getEmail() + " " + NameActivity.newUser.getPassword(), Toast.LENGTH_SHORT).show();
                     //Intent intent = new Intent(PasswordActivity.this, BottomNavigationActivity.class);
                     //Intent intent = new Intent(PasswordActivity.this, AgeActivity.class);
                     createdAccount = true;

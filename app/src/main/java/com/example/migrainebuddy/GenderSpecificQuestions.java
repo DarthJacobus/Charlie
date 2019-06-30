@@ -18,27 +18,22 @@ public class GenderSpecificQuestions extends AppCompatActivity
     RadioGroup radioGroup;
     RadioButton radioButton;
 
-    ViewFlipper questionFlipper;
+    ViewFlipper questionFlipper, questionFlipperFemale, questionFlipperMale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_gender_questions);
 
-        questionFlipper = findViewById(R.id.questionFlipper);
+        radioGroup = findViewById(R.id.radioGroupGenderQuestion);
 
-        TextView textView = new TextView(this);
-
-        questionFlipper.addView(textView);
-
-
-
-
-
-
+        questionFlipper = findViewById(R.id.questionFlipperGender);
+        questionFlipper.setVisibility(View.VISIBLE);
+        questionFlipperFemale= findViewById(R.id.questionFlipperFemale);
+        questionFlipperFemale.setVisibility(View.GONE);
+        questionFlipperMale = findViewById(R.id.questionFlipperMale);
+        questionFlipperMale.setVisibility(View.GONE);
 
 
 
@@ -56,11 +51,35 @@ public class GenderSpecificQuestions extends AppCompatActivity
         questionFlipper.showPrevious();
     }
 
-    public void nextView(View v)
+    public void nextViewFemale(View v)
     {
-        questionFlipper.setInAnimation(this, R.anim.slide_in_right);
-        questionFlipper.setOutAnimation(this, R.anim.slide_out_left);
-        questionFlipper.showNext();
+        questionFlipperFemale.setInAnimation(this, R.anim.slide_in_right);
+        questionFlipperFemale.setOutAnimation(this, R.anim.slide_out_left);
+        questionFlipperFemale.showNext();
+    }
+
+    public void nextViewMale(View v)
+    {
+        questionFlipperMale.setInAnimation(this, R.anim.slide_in_right);
+        questionFlipperMale.setOutAnimation(this, R.anim.slide_out_left);
+        questionFlipperMale.showNext();
+    }
+
+    public void goToSpecificGenderFlipper(View v)
+    {
+        int radioID = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioID);
+
+        if(radioButton.getText().equals("Female")) {
+            questionFlipper.setVisibility(View.GONE);
+            questionFlipperFemale.setVisibility(View.VISIBLE);
+        }
+
+        if(radioButton.getText().equals("Male")) {
+            questionFlipper.setVisibility(View.GONE);
+            questionFlipperMale.setVisibility(View.VISIBLE);
+        }
+
     }
 
 
@@ -78,7 +97,7 @@ public class GenderSpecificQuestions extends AppCompatActivity
 
     public void goToProfile(View v)
     {
-                Intent intent = new Intent(this, BottomNavigationActivity.class);
+        Intent intent = new Intent(this, BottomNavigationActivity.class);
         startActivity(intent);
 
     }
