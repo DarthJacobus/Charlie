@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgeActivity"
+    tools:context=".LogIn_CreateAccount.AgeActivity"
     android:background="@drawable/w4">
 
     <TextView
@@ -17,6 +17,7 @@
         android:textSize="20sp" />
 
     <DatePicker
+        android:id="@+id/datePickerAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:datePickerMode="spinner"
@@ -24,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="340dp"
-        android:minDate="01/01/1870"/>
+        android:minDate="01/01/1870" />
 
     <Button
         android:id="@+id/finishButton"

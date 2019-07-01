@@ -1,4 +1,4 @@
-package com.example.migrainebuddy;
+package com.example.migrainebuddy.LogIn_CreateAccount;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,14 +13,19 @@ import android.widget.ViewFlipper;
 import com.example.migrainebuddy.BottomNavigation.BottomNavigationActivity;
 import com.example.migrainebuddy.LogIn_CreateAccount.NameActivity;
 import com.example.migrainebuddy.Profile_and_Settings.ProfileFragment;
+import com.example.migrainebuddy.R;
 
 public class GenderSpecificQuestions extends AppCompatActivity
 {
 
-    RadioGroup radioGroup;
+    RadioGroup radioGroupGenderChoice;
     RadioButton radioButton;
 
     ViewFlipper questionFlipper, questionFlipperFemale, questionFlipperMale;
+
+    Boolean createdAccount;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,7 +33,7 @@ public class GenderSpecificQuestions extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_questions);
 
-        radioGroup = findViewById(R.id.radioGroupGenderQuestion);
+        radioGroupGenderChoice = findViewById(R.id.radioGroupGenderQuestion);
 
         questionFlipper = findViewById(R.id.questionFlipperGender);
         questionFlipper.setVisibility(View.VISIBLE);
@@ -69,15 +74,17 @@ public class GenderSpecificQuestions extends AppCompatActivity
 
     public void goToSpecificGenderFlipper(View v)
     {
-        int radioID = radioGroup.getCheckedRadioButtonId();
+        int radioID = radioGroupGenderChoice.getCheckedRadioButtonId();
         radioButton = findViewById(radioID);
 
         if(radioButton.getText().equals("Female")) {
+            NameActivity.newUser.setGender("Female");
             questionFlipper.setVisibility(View.GONE);
             questionFlipperFemale.setVisibility(View.VISIBLE);
         }
 
         if(radioButton.getText().equals("Male")) {
+            NameActivity.newUser.setGender("Male");
             questionFlipper.setVisibility(View.GONE);
             questionFlipperMale.setVisibility(View.VISIBLE);
         }
@@ -88,7 +95,7 @@ public class GenderSpecificQuestions extends AppCompatActivity
 
     public void checkButton(View v)
     {
-        int radioID = radioGroup.getCheckedRadioButtonId();
+        int radioID = radioGroupGenderChoice.getCheckedRadioButtonId();
 
         radioButton = findViewById(radioID);
 
@@ -101,7 +108,7 @@ public class GenderSpecificQuestions extends AppCompatActivity
     {
         Intent intent = new Intent(this, BottomNavigationActivity.class);
 
-        //createdAccount = true;
+        createdAccount = true;
 
         Bundle bundle = new Bundle();
         bundle.putString("userEmail", NameActivity.newUser.getEmail());

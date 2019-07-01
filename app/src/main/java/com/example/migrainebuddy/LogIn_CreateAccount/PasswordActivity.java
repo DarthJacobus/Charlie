@@ -14,9 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.migrainebuddy.AgeActivity;
+
 import com.example.migrainebuddy.Databases.MBDatabaseHelper;
-import com.example.migrainebuddy.Profile_and_Settings.ProfileFragment;
 import com.example.migrainebuddy.R;
 import com.example.migrainebuddy.UserDataEncryption;
 

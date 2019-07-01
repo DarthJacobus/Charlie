@@ -19,16 +19,10 @@ public class FemaleUser extends User
 
 
     //Constructor
-    public FemaleUser(String email, String password, String firstName, String lastName, Boolean menarche, Boolean menopause, Boolean hormoneReplacementTherapy, Boolean pregnant, Boolean contraceptivePills)
+    public FemaleUser(String email, String password, String firstName, String lastName, String monthBorn, String dayBorn,
+                                  String yearBorn)
     {
-        super(email, password, firstName, lastName, 1);
-        this.menarche = menarche;
-        this.menopause = menopause;
-        this.hormoneReplacementTherapy = hormoneReplacementTherapy;
-        this.pregnant = pregnant;
-        this.contraceptivePills = contraceptivePills;
-
-        analyzeVariableConsequences();
+        super(email, password, firstName, lastName, monthBorn, dayBorn, yearBorn, "Female");
 
     }
 

@@ -73,7 +73,7 @@ public class NameActivity extends AppCompatActivity
                     closeKeyboard();
                     String decFirstName = encryptor.encrypt(firstName, "hgtkk5ok3o34o");
                     String decLastName = encryptor.encrypt(lastName, "lkj3h4fgerqf43u");
-                    newUser = new User(null, null, decFirstName, decLastName, 0);
+                    newUser = new User(null, null, decFirstName, decLastName, null, null, null, null);
 
                     Handler h = new Handler();
                     h.postDelayed(r, 300);

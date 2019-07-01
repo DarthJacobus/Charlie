@@ -18,11 +18,13 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
     public static final String COL2 = "PASSWORD";
     public static final String COL3 = "FIRSTNAME";
     public static final String COL4 = "LASTNAME";
-    public static final String COL5 = "GENDER";
+    public static final String COL5 = "MONTHBORN";
+    public static final String COL6 = "DAYBORN";
+    public static final String COL7 = "YEARBORN";
+    public static final String COL8 = "GENDER";
     public static final String TABLENAME = "userTable";
 
-    private static String email, password, firstName, lastName;
-    private static int gender;
+    private static String email, password, firstName, lastName, monthBorn, dayBorn, yearBorn, gender;
 
 
     public MBDatabaseHelper(Context context)
@@ -38,7 +40,10 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
                 "PASSWORD TEXT, " +
                 "FIRSTNAME TEXT, " +
                 "LASTNAME TEXT, " +
-                "GENDER NUMBER)");
+                "MONTHBORN TEXT, " +
+                "DAYBORN TEXT, " +
+                "YEARBORN TEXT, " +
+                "GENDER TEXT)");
     }
 
     @Override
@@ -48,12 +53,16 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public long addUser(String email, String password, String firstName, String lastName, int gender)
+    public long addUser(String email, String password, String firstName, String lastName, String monthBorn, String dayBorn,
+                                    String yearBorn, String gender)
     {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.monthBorn = monthBorn;
+        this.dayBorn = dayBorn;
+        this.yearBorn = yearBorn;
         this.gender = gender;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -63,7 +72,11 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL2, password);
         contentValues.put(COL3, firstName);
         contentValues.put(COL4, lastName);
-        contentValues.put(COL5, gender);
+        contentValues.put(COL5, monthBorn);
+        contentValues.put(COL6, dayBorn);
+        contentValues.put(COL7, yearBorn);
+        contentValues.put(COL8, gender);
+
 
         long res = db.insert("userTable", null, contentValues);
         db.close();
@@ -94,7 +107,10 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
         String fetchedPassword = "";
         String fetchedFirstName = "";
         String fetchedLastName = "";
-        int fecthedGender = 0;
+        String fetchedMonthBorn = "";
+        String fetchedDayBorn = "";
+        String fetchedYearBorn = "";
+        String fetchedGender = "";
 
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -110,12 +126,16 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
                     fetchedPassword = cursor.getString(2);
                     fetchedFirstName = cursor.getString(3);
                     fetchedLastName = cursor.getString(4);
-                    fecthedGender = cursor.getInt(5);
+                    fetchedMonthBorn = cursor.getString(5);
+                    fetchedDayBorn = cursor.getString(6);
+                    fetchedYearBorn = cursor.getString(7);
+                    fetchedGender = cursor.getString(8);
                 }
             } while (cursor.moveToNext());
         }
 
-        User user = new User(fetchedEmail, fetchedPassword, fetchedFirstName, fetchedLastName, fecthedGender);
+        User user = new User(fetchedEmail, fetchedPassword, fetchedFirstName, fetchedLastName, fetchedMonthBorn,
+                                           fetchedDayBorn, fetchedYearBorn, fetchedGender);
 
         cursor.close();
 

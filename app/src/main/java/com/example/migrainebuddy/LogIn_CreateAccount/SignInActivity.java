@@ -88,7 +88,7 @@ public class SignInActivity extends AppCompatActivity {
             Toast.makeText(SignInActivity.this, "Signed in. Welcome, " + getUserFirstName(email) + "!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SignInActivity.this, BottomNavigationActivity.class);
             signedIn = true;
-            signedInUser = new User(email, null, null, null, 0);
+            signedInUser = new User(email, null, null, null, null, null, null, null);
             startActivity(intent);
         }
         else {

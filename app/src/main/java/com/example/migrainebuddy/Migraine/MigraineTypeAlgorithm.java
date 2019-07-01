@@ -26,7 +26,7 @@ public class MigraineTypeAlgorithm
 
     public void evalMensturalMigraine()
     {
-        if(user.getGender() == 1) { menstrualMigraine++; }
+        if(user.getGender().equals("Female")) { menstrualMigraine++; }
         if(migraineInstance.menstruationPeriod) { menstrualMigraine++; }
         if(migraineInstance.hormoneTherapyMeds) { menstrualMigraine++;}
         if(migraineInstance.contraceptiveMeds) { menstrualMigraine++;}
