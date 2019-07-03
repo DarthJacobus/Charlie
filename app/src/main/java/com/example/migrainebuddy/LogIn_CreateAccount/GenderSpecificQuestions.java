@@ -11,6 +11,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.migrainebuddy.BottomNavigation.BottomNavigationActivity;
+import com.example.migrainebuddy.Databases.MBDatabaseHelper;
 import com.example.migrainebuddy.LogIn_CreateAccount.NameActivity;
 import com.example.migrainebuddy.Profile_and_Settings.ProfileFragment;
 import com.example.migrainebuddy.R;
@@ -24,6 +25,17 @@ public class GenderSpecificQuestions extends AppCompatActivity
     ViewFlipper questionFlipper, questionFlipperFemale, questionFlipperMale;
 
     Boolean createdAccount;
+
+    MBDatabaseHelper userDatabase;
+
+    String firstName = NameActivity.newUser.getFirstName();
+    String lastName = NameActivity.newUser.getLastName();
+    String email = NameActivity.newUser.getEmail();
+    String password = NameActivity.newUser.getPassword();
+    String monthBorn = NameActivity.newUser.getMonthBorn();
+    String dayBorn = NameActivity.newUser.getDayBorn();
+    String yearBorn = NameActivity.newUser.getYearBorn();
+    String gender;
 
 
 
@@ -79,6 +91,8 @@ public class GenderSpecificQuestions extends AppCompatActivity
 
         if(radioButton.getText().equals("Female")) {
             NameActivity.newUser.setGender("Female");
+            gender = NameActivity.newUser.getGender();
+            userDatabase.addUser(firstName, lastName, email, password, monthBorn, dayBorn, yearBorn, gender);
             questionFlipper.setVisibility(View.GONE);
             questionFlipperFemale.setVisibility(View.VISIBLE);
         }

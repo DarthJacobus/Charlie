@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="220dp"
-        android:fontFamily="@font/indie_flower"
+        android:fontFamily="@font/sniglet"
         android:text="Your friendly Migraine helper"
-        android:textStyle="bold"
         android:textColor="#001a33"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <Button
@@ -38,8 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
-        android:text="Sign in"
         android:backgroundTint="#001a33"
+        android:fontFamily="@font/sniglet"
+        android:text="Sign in"
         android:textColor="#999999" />
 
 
@@ -49,8 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="455dp"
-        android:text="Create Account"
         android:backgroundTint="#001a33"
+        android:fontFamily="@font/sniglet"
+        android:text="Create Account"
         android:textColor="#999999" />
 
 </RelativeLayout>

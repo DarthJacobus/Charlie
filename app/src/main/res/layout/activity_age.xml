@@ -14,7 +14,8 @@
         android:fontFamily="@font/sniglet"
         android:gravity="center_horizontal"
         android:text="What is your date of birth?"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#999999"/>
 
     <DatePicker
         android:id="@+id/datePickerAge"
@@ -34,7 +35,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="570dp"
         android:fontFamily="@font/sniglet"
-        android:text="Finish" />
+        android:text="Finish"
+        android:backgroundTint="#234790"
+        android:textColor="#999999"
+        android:textStyle="bold"/>
 
 
 

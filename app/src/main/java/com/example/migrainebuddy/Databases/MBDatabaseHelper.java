@@ -11,8 +11,8 @@ import com.example.migrainebuddy.User.User;
 public class MBDatabaseHelper extends SQLiteOpenHelper
 {
 
-    public static final String DATABASE_NAME = "User Database";
-    public static final String TABLE_NAME = "User table";
+    public static final String DATABASE_NAME = "Charlie Database: Users";
+    public static final String TABLE_NAME = "UserDataTable";
     public static final int DATABASE_VERSION = 1;
     public static final String COL1 = "EMAIL";
     public static final String COL2 = "PASSWORD";
@@ -22,7 +22,6 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
     public static final String COL6 = "DAYBORN";
     public static final String COL7 = "YEARBORN";
     public static final String COL8 = "GENDER";
-    public static final String TABLENAME = "userTable";
 
     private static String email, password, firstName, lastName, monthBorn, dayBorn, yearBorn, gender;
 
@@ -35,7 +34,7 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL("CREATE TABLE  userTable (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        db.execSQL("CREATE TABLE  UserDataTable (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "EMAIL TEXT, " +
                 "PASSWORD TEXT, " +
                 "FIRSTNAME TEXT, " +
@@ -78,7 +77,7 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL8, gender);
 
 
-        long res = db.insert("userTable", null, contentValues);
+        long res = db.insert("UserDataTable", null, contentValues);
         db.close();
         return res;
     }
@@ -86,7 +85,7 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
     public Boolean userExists(String email, String password)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from userTable where email=? and password=?", new String[]{email, password});
+        Cursor cursor = db.rawQuery("select * from UserDataTable where email=? and password=?", new String[]{email, password});
         if(cursor.getCount() > 0) {
             return true;
         }
@@ -116,7 +115,7 @@ public class MBDatabaseHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getReadableDatabase();
 
 
-        Cursor cursor = db.rawQuery("select * from userTable where email='"+userEmail+"'",null);
+        Cursor cursor = db.rawQuery("select * from UserDataTable where email='"+userEmail+"'",null);
 
 
         if (cursor.moveToFirst()) {

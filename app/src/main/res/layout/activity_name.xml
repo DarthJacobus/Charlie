@@ -29,7 +29,8 @@
             android:paddingBottom="25dp"
             android:text="What's your name?"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#999999"/>
 
         <EditText
             android:id="@+id/firstNameFieldCA"
@@ -75,7 +76,10 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.736"
+        android:backgroundTint="#234790"
+        android:textColor="#999999"
+        android:textStyle="bold"/>
 
 
     <TextView
@@ -87,7 +91,7 @@
         android:clickable="true"
         android:fontFamily="@font/sniglet"
         android:text="Sign in instead"
-        android:textColor="#FFFFFF"
+        android:textColor="#999999"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.487"
